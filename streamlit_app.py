@@ -1,8 +1,3 @@
-
-Vignesh Vicky
-11:44 AM (0 minutes ago)
-to me
-
 import streamlit as st
 import requests
 
