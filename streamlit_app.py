@@ -19,7 +19,7 @@ if st.button("Analyze Sentiment"):
         with st.spinner("Analyzing..."):
             try:
                 response = requests.post(
-                    "https://movie-sentiment-analyzing-model-5.onrender.com/predict",
+                    "https://movie-sentiment-analyzing-model-6.onrender.com/predict",
                     json={"reviews": review}
                 )
 
