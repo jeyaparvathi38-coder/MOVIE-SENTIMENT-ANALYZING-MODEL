@@ -18,7 +18,7 @@ def home():
             'health':'GET/health',
             'predict':'POST/predict'
         }
-    }}
+    })
 
 @app.route("/predict", methods=["POST"])
 def predict():
