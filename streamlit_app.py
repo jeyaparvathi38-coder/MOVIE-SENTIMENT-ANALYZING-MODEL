@@ -17,15 +17,24 @@ if st.button("Analyze Sentiment"):
         st.warning("Please enter a review first!")
     else:
         with st.spinner("Analyzing..."):
-            response = requests.post(
-                "https://movie-sentiment-analyzing-model-3.onrender.com/predict",
-                json={"reviews": review}
-            )
+            try:
+                response = requests.post(
+                    "https://movie-sentiment-analyzing-model-3.onrender.com/predict",
+                    json={"reviews": review}
+                )
 
-            result = response.json()
-            sentiment = result["prediction"]
+                result = response.json()
+                st.write("API Response:", result)  # debug
 
-            if "pos" in sentiment.lower() or "neg" in sentiment.lower():
-                st.success(f"Sentiment: {sentiment}")
-            else:
-                st.error(f"Sentiment: {sentiment}")
+                sentiment = result.get("prediction")
+
+                if sentiment:
+                    if "pos" in sentiment.lower() or "neg" in sentiment.lower():
+                        st.success(f"Sentiment: {sentiment}")
+                    else:
+                        st.info(f"Sentiment: {sentiment}")
+                else:
+                    st.error("Prediction key not found in API response!")
+
+            except Exception as e:
+                st.error(f"Error: {e}")
