@@ -29,6 +29,7 @@ if st.button("Analyze Sentiment"):
 
         #Display result
         sentiment = result['prediction']
+        st.write(result)
         #confidence = result['confidence']
 
         if"pos" in sentiment or "neg" in sentiment:
