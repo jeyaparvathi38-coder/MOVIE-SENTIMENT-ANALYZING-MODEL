@@ -21,7 +21,7 @@ if st.button("Analyze Sentiment"):
     else:
         with st.spinner("Analyzing..."):
             # Call your Flask backend
-            response = requests.post(a
+            response = requests.post(
                 "https://movie-sentiment-analyzing-model-3.onrender.com/predict",
                 json={"reviews": review}
             )
