@@ -35,7 +35,7 @@ def predict():
 
         prediction = model.predict(process_review)
 
-        return jsonify({"prediction": str(prediction[0])})
+        return jsonify({"prediction": str(prediction[0]})
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
